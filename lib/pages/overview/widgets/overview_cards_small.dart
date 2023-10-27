@@ -17,7 +17,7 @@ class OverviewCardsSmallScreen extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return SizedBox(
-      height: 400,
+      height: serviceUrl == AppConstants.cloudServiceCollection ? 400 : 200,
       child: Column(
         children: [
           InfoCardSmall(
@@ -37,7 +37,8 @@ class OverviewCardsSmallScreen extends StatelessWidget {
           // SizedBox(
           //   height: width / 48,
           // ),
-          if (serviceUrl != AppConstants.zenithlinkCollection)
+
+          if (serviceUrl == AppConstants.cloudServiceCollection)
             InfoCardSmall(
               title: "Support Messages",
               value: support.toString(),

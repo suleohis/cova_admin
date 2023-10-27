@@ -39,7 +39,7 @@ class OverviewCardsMediumScreen extends StatelessWidget {
             // SizedBox(
             //   height: width / 48,
             // ),
-            if (serviceUrl != AppConstants.zenithlinkCollection)
+            if (serviceUrl == AppConstants.cloudServiceCollection)
               InfoCard(
                 title: "Support Messages",
                 value: support.toString(),

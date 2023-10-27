@@ -27,6 +27,7 @@ class RouteHelper {
   //Services
   static const String cloudService = '/cloud-service';
   static const String zenithlink = '/zenithlink';
+  static const String ftRendering = '/ftRendering';
 
   static String getInitialRoute() => initial;
   static String getOverViewRoute(String route) => route + overview;
@@ -43,6 +44,7 @@ class RouteHelper {
         page: () {
           return  const InitialPage();
         }),
+    //Cloud Service
     GetPage(
         name: cloudService + overview,
         page: () {
@@ -54,6 +56,7 @@ class RouteHelper {
     GetPage(name: cloudService + supports, page: () => const SupportsPages(serviceLink: AppConstants.cloudServiceCollection, serviceName: AppConstants.cloudService)),
     GetPage(name: cloudService + users + cart , page: () => CartsPage(uid: Get.parameters['uid']!, serviceLink: AppConstants.cloudServiceCollection, serviceName: AppConstants.cloudService)),
 
+    //Zenith Link
     GetPage(
         name: zenithlink + overview,
         page: () {
@@ -63,6 +66,14 @@ class RouteHelper {
 
     GetPage(name: zenithlink + supports, page: () => const SupportsPages(serviceLink: AppConstants.zenithlinkCollection,serviceName: AppConstants.zenithLink)),
     GetPage(name: zenithlink + users + cart , page: () => CartsPage(uid: Get.parameters['uid']!, serviceLink: AppConstants.zenithlinkCollection,serviceName: AppConstants.zenithLink )),
+
+    //FTRendering
+    GetPage(
+        name: ftRendering + overview,
+        page: () {
+          return const OverviewPage(serviceLink: AppConstants.ftRenderingCollection,serviceName: AppConstants.ftRendering);
+        }),
+    GetPage(name: ftRendering + users, page: () => const UsersPage(serviceLink: AppConstants.ftRenderingCollection ,serviceName: AppConstants.ftRendering )),
 
     GetPage(name: signIn, page: () => const AuthenticationPage()),
     GetPage(name: unknown, page: () => const PageNotFound())
@@ -115,6 +126,23 @@ List<MainMenuItem> sideMenuItemRoutes = [
       MenuItem(
           name: AppConstants.users,
           route: RouteHelper.getUsersRoute(RouteHelper.zenithlink),
+          icon: Icons.groups),
+      // MenuItem(
+      //     name: AppConstants.supports,
+      //     route: RouteHelper.getSupportsRoute(RouteHelper.zenithlink),
+      //     icon: Icons.support),
+    ],
+  ),
+  MainMenuItem(
+    name: AppConstants.ftRendering,
+    sideMenu: [
+      MenuItem(
+          name: AppConstants.overview,
+          route: RouteHelper.getOverViewRoute(RouteHelper.ftRendering),
+          icon: Icons.trending_up),
+      MenuItem(
+          name: AppConstants.users,
+          route: RouteHelper.getUsersRoute(RouteHelper.ftRendering),
           icon: Icons.groups),
       // MenuItem(
       //     name: AppConstants.supports,

@@ -56,7 +56,7 @@ class UsersTable extends StatelessWidget {
                   const DataColumn(
                     label: Text('Sign In At'),
                   ),
-                  if(service !=  AppConstants.zenithlinkCollection)
+                  if(service ==  AppConstants.cloudServiceCollection)
                   const DataColumn(
                     label: Text('Action'),
                   ),
@@ -71,7 +71,7 @@ class UsersTable extends StatelessWidget {
                       DataCell(CustomText(text:DateFormat.yMMMMEEEEd().format(users[index].createdAt!), size: 13,)),
                       DataCell(CustomText(text:DateFormat.yMMMMEEEEd().format(users[index].signInAt!), size: 13,)),
 
-                        if(service !=  AppConstants.zenithlinkCollection)
+                        if(service ==  AppConstants.cloudServiceCollection)
                           DataCell(GestureDetector(
                             onTap: () => Get.toNamed(RouteHelper.getCartRoute(RouteHelper.getUsersRoute(RouteHelper.cloudService), users[index].uid!  )),
                             child: Container(

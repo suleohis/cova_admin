@@ -23,6 +23,7 @@ class AppConstants {
   ///Service
   static const String cloudService = "Cloud Services";
   static const String zenithLink = "Zenitnlink";
+  static const String ftRendering = "FTRendering";
 
 
   ///type
@@ -76,6 +77,7 @@ class AppConstants {
   static const String servicesCollection = 'services';
   static const String cloudServiceCollection = 'host-king';
   static const String zenithlinkCollection = 'zenithlink-5c78b';
+  static const String ftRenderingCollection = 'render-site';
   static const String usersCollection = 'users';
   static const String supportsCollection = 'supports';
 

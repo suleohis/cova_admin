@@ -35,7 +35,7 @@ class _OverviewPageState extends State<OverviewPage> {
   
   getCounts() async {
     List<UserModel> users = await Authentication().getAllUsers(service: widget.serviceLink);
-    if (AppConstants.zenithlinkCollection != widget.serviceLink) {
+    if (AppConstants.cloudServiceCollection == widget.serviceLink) {
       List<SupportModel> supports = await Authentication()
           .getSupportsMessages(service: widget.serviceLink);
       supportCount = supports.length;
